@@ -1,0 +1,13 @@
+Przykładowa konfiguracja Active Response w Wazuh
+<active-response>
+  <command>win_kill_ransomware</command>
+  <location>local</location>
+  <rules_id>92001</rules_id>
+  <timeout>0</timeout>
+</active-response>
+
+<command>
+  <name>win_kill_ransomware</name>
+  <executable>win_kill_ransomware.ps1</executable>
+  <timeout_allowed>no</timeout_allowed>
+</command>

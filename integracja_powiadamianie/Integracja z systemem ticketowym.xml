@@ -1,0 +1,6 @@
+<integration>
+  <name>custom-ticketing</name>
+  <hook_url>https://servicenow.example.com/api/incidents</hook_url>
+  <alert_format>json</alert_format>
+  <level>10</level>
+</integration>

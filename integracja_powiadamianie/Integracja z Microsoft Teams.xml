@@ -1,0 +1,6 @@
+<integration>
+  <name>custom-windows-ransomware</name>
+  <hook_url>https://outlook.office.com/webhook/...</hook_url>
+  <alert_format>json</alert_format>
+  <level>10</level>
+</integration>

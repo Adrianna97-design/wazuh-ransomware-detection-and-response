@@ -1,0 +1,29 @@
+<group name="windows_ransomware_detection">
+
+  <!-- Wykrycie masowego tworzenia plików przez jeden proces (Sysmon Event ID 11) -->
+  <rule id="92001" level="10">
+    <if_sid>61603</if_sid> 
+    <match>EventID: 11</match>
+
+    <!-- Wzorce rozszerzeń typowych dla ransomware -->
+    <regex>\.(lock|encrypted|crypt|enc|locked)$</regex>
+
+    <!-- Wykluczenia, aby uniknąć false positives -->
+    <not_regex>(Windows\\Temp|SoftwareDistribution|WinSxS)</not_regex>
+
+    <!-- Korelacja: wiele zdarzeń w krótkim czasie -->
+    <frequency>8</frequency>
+    <timeframe>30</timeframe>
+
+    <description>
+      Wykryto podejrzaną aktywność: masowe tworzenie plików o rozszerzeniach typowych dla ransomware (Sysmon Event ID 11).
+    </description>
+
+    <mitre>
+      <id>T1486</id> <!-- Data Encrypted for Impact -->
+    </mitre>
+
+    <group>ransomware,windows,sysmon</group>
+  </rule>
+
+</group>
